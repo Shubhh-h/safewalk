@@ -1,0 +1,19 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  position: relative;
+  height: 100%;
+}
+
+.map-area {
+  flex: 1;
+  position: relative;
+}

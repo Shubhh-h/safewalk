@@ -1,0 +1,320 @@
+/* Mobile Responsive Styles for SafeWalk */
+
+/* Viewport settings for proper mobile rendering */
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  /* Navbar mobile adjustments */
+  nav.glass-panel {
+    height: 56px !important;
+    padding: 0 12px !important;
+    flex-wrap: wrap;
+  }
+
+  nav.glass-panel > div:first-child {
+    font-size: 1.2rem !important;
+    gap: 6px !important;
+  }
+
+  /* Hide search on mobile, show via toggle */
+  nav.glass-panel > div:nth-child(2) {
+    display: none;
+  }
+
+  /* Mobile navigation buttons */
+  nav.glass-panel > div:last-child {
+    gap: 8px !important;
+  }
+
+  nav.glass-panel button {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    background: var(--bg-surface);
+  }
+
+  /* Main content adjustments */
+  .main-content {
+    flex-direction: column;
+  }
+
+  /* Sidebar - make it collapsible on mobile */
+  .sidebar {
+    position: fixed !important;
+    left: 0;
+    top: 56px;
+    height: calc(100vh - 56px) !important;
+    width: 80% !important;
+    max-width: 300px !important;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 100 !important;
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  /* Overlay when sidebar is open */
+  .sidebar-overlay {
+    display: block;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 99;
+    backdrop-filter: blur(4px);
+  }
+
+  /* Map area - full screen on mobile */
+  .map-area {
+    width: 100% !important;
+    height: calc(100vh - 56px) !important;
+  }
+
+  /* Route panel - bottom sheet style */
+  .route-panel {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
+    width: 100% !important;
+    max-height: 60vh;
+    border-radius: 20px 20px 0 0 !important;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+  }
+
+  .route-panel.minimized {
+    transform: translateY(calc(100% - 60px));
+  }
+
+  /* SOS Button - larger and more accessible on mobile */
+  .sos-button {
+    bottom: 100px !important;
+    right: 16px !important;
+    width: 70px !important;
+    height: 70px !important;
+    font-size: 1.8rem !important;
+  }
+
+  /* Heatmap toggle - adjust position */
+  .heatmap-toggle {
+    top: 70px !important;
+    right: 16px !important;
+    padding: 8px 12px !important;
+    font-size: 0.85rem !important;
+  }
+
+  /* Safety Score - position adjustment */
+  .safety-score {
+    top: 70px !important;
+    left: 16px !important;
+    padding: 10px 14px !important;
+    font-size: 0.9rem !important;
+  }
+
+  /* Modals - full screen on mobile */
+  .modal-overlay {
+    padding: 0 !important;
+  }
+
+  .modal-content {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Emergency contacts - optimized for mobile */
+  .emergency-contacts {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0 !important;
+  }
+
+  .contact-card {
+    padding: 14px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .contact-card button {
+    padding: 10px 16px !important;
+    font-size: 0.9rem !important;
+  }
+
+  /* Community reports - mobile optimization */
+  .community-reports {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0 !important;
+  }
+
+  .report-card {
+    padding: 12px !important;
+    margin-bottom: 10px !important;
+  }
+
+  /* Forms - mobile friendly inputs */
+  input, textarea, select {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+    padding: 12px 14px !important;
+  }
+
+  textarea {
+    min-height: 120px !important;
+  }
+
+  button {
+    min-height: 44px; /* Touch target size */
+    padding: 10px 16px;
+  }
+
+  /* Map controls - better touch targets */
+  .leaflet-control-zoom a {
+    width: 36px !important;
+    height: 36px !important;
+    line-height: 36px !important;
+    font-size: 20px !important;
+  }
+
+  .leaflet-control-layers {
+    padding: 8px !important;
+  }
+
+  /* Loading overlay - adjust for mobile */
+  .loading-overlay {
+    backdrop-filter: blur(8px);
+  }
+
+  .loading-spinner {
+    width: 50px !important;
+    height: 50px !important;
+  }
+}
+
+/* Tablet responsive styles */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  nav.glass-panel {
+    padding: 0 16px !important;
+  }
+
+  .sidebar {
+    width: 280px !important;
+  }
+
+  .route-panel {
+    width: 360px !important;
+  }
+
+  nav.glass-panel button {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Small mobile devices */
+@media screen and (max-width: 375px) {
+  nav.glass-panel {
+    height: 52px !important;
+    padding: 0 10px !important;
+  }
+
+  nav.glass-panel > div:first-child {
+    font-size: 1.1rem !important;
+  }
+
+  nav.glass-panel button {
+    padding: 5px 8px;
+    font-size: 0.8rem;
+  }
+
+  .sos-button {
+    width: 60px !important;
+    height: 60px !important;
+    bottom: 90px !important;
+    right: 12px !important;
+  }
+
+  .safety-score {
+    font-size: 0.85rem !important;
+    padding: 8px 12px !important;
+  }
+}
+
+/* Landscape mode mobile */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  .main-content {
+    flex-direction: row;
+  }
+
+  .sidebar {
+    width: 250px !important;
+    height: 100vh !important;
+    top: 0 !important;
+  }
+
+  .map-area {
+    height: 100vh !important;
+  }
+
+  .route-panel {
+    max-height: 80vh;
+  }
+
+  nav.glass-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+}
+
+/* Touch-friendly hover states */
+@media (hover: none) and (pointer: coarse) {
+  .hover-glow:active {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px var(--primary-glow);
+  }
+
+  button:active {
+    transform: scale(0.98);
+  }
+
+  .contact-card:active,
+  .report-card:active {
+    transform: scale(0.99);
+  }
+}
+
+/* Safe area for notched devices (iPhone X+) */
+@supports (padding: env(safe-area-inset-top)) {
+  body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  nav.glass-panel {
+    padding-top: calc(env(safe-area-inset-top) + 8px) !important;
+  }
+
+  .sidebar {
+    top: calc(56px + env(safe-area-inset-top)) !important;
+  }
+
+  .sos-button {
+    bottom: calc(100px + env(safe-area-inset-bottom)) !important;
+  }
+}
